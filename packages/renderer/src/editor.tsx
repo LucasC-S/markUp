@@ -20,7 +20,7 @@ const Editor: React.FC<Props> = (props) => {4
 
     useEffect(() => {
         if (editorView) {
-            //Do nothing
+            //TODO: something
         }
     }, [editorView])
 
