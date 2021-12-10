@@ -1,5 +1,5 @@
 {
-  "name": "vite-electron-builder",
+  "name": "markup",
   "private": true,
   "engines": {
     "node": ">=v16.13",
@@ -46,6 +46,7 @@
     "eslint-plugin-vue": "8.2.0",
     "nano-staged": "0.4.5",
     "playwright": "1.17.1",
+    "remark-math": "^5.1.1",
     "simple-git-hooks": "2.7.0",
     "typescript": "4.5.2",
     "vite": "2.7.1"
@@ -71,7 +72,6 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
-    "unified": "^10.1.1",
-    "vue": "3.2.24"
+    "unified": "^10.1.1"
   }
 }
