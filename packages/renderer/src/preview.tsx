@@ -17,21 +17,6 @@ interface Props {
     doc: string
 }
 
-const schema = {
-    ...defaultSchema,
-          attributes: {
-            ...defaultSchema.attributes,
-            code: [...(defaultSchema.attributes?.code || []), 'className'],
-            div: [
-              ...(defaultSchema.attributes.div || []),
-              ['className', 'math', 'math-display']
-            ],
-            span: [
-              ...(defaultSchema.attributes.span || []),
-              ['className', 'math', 'math-inline']
-            ]
-          }
-  }
 
 const Preview: React.FC<Props> = (props) => {
     const md = unified()
@@ -39,7 +24,21 @@ const Preview: React.FC<Props> = (props) => {
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeSanitize, schema)
+    .use(rehypeSanitize, {
+        ...defaultSchema,
+        attributes: {
+          ...defaultSchema.attributes,
+          code: [...(defaultSchema.attributes?.code || []), 'className'],
+          div: [
+            ...(defaultSchema.attributes?.div || []),
+            ['className', 'math', 'math-display']
+          ],
+          span: [
+            ...(defaultSchema.attributes?.span || []),
+            ['className', 'math', 'math-inline']
+          ]
+        }
+    })
     .use(rehypeMathjax)
     .use(rehypeReact, {
         createElement: React.createElement,
